@@ -1,0 +1,151 @@
+html {
+    height: 100%;
+}
+body {
+    display: flex;
+    background: linear-gradient(90deg,rgba(42, 123, 155, 1) 0%, rgba(87, 199, 133, 1) 100%, rgba(83, 119, 237, 1) 100%);
+    align-items: center;
+    justify-content: center;
+    height:100%;
+    animation: bodyIn 3s linear 2s infinite alternate;
+}
+
+@keyframes bodyIn{
+    
+    
+}
+
+
+.fade1 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn1 3s linear 2s infinite alternate;
+}
+
+@keyframes fadeIn1 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade2 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn2 3s linear 3s infinite alternate;
+}
+
+@keyframes fadeIn2 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade3 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn3 3s linear 4s infinite alternate;
+}
+
+@keyframes fadeIn3 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade4 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn4 3s linear 5s infinite alternate;
+}
+
+@keyframes fadeIn4 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+.fade5 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn5 3s linear 6s infinite alternate;
+}
+
+@keyframes fadeIn5 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade6 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn6 3s linear 7s infinite alternate;
+}
+
+@keyframes fadeIn6 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade7 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn7 3s linear 8s infinite alternate;
+}
+
+@keyframes fadeIn7 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.fade8 {
+    color: rgb(45, 33, 33);
+    font-size: 70px;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    opacity: 0;
+    animation: fadeIn8 3s linear 9s infinite alternate;
+}
+
+@keyframes fadeIn8 {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+

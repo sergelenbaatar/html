@@ -1,0 +1,52 @@
+.daalgavar1 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transition: all ease .8s;
+
+}
+.daalgavar1:hover {
+    transform: translate(100px, 20px);
+}
+
+.daalgavar2 {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    transition: all ease .8s;
+}
+.daalgavar2:hover {
+    transform: rotate(180deg);
+}
+
+.daalgavar3 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transition: all ease .8s;
+
+}
+.daalgavar3:hover {
+    transform: scale(1.2);
+}
+
+.daalgavar4 {
+    transform: skew(20deg);
+    transition: all ease .8s;
+
+}
+.daalgavar4:hover {
+    transform: skew(0deg);
+}
+
+.daalgavar5 {
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    transition: all ease .8s;
+
+}
+.daalgavar5:hover{
+    transform: rotate(10deg) scale(1.1) translateY(-10px);
+    
+}
