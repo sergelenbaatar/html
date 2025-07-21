@@ -53,3 +53,30 @@
         grid-template-columns: 1fr;
     }
 }
+
+.container2 {
+    display: grid;
+    grid-template-columns: 25% 75% ;
+    margin-top: 50px;
+}
+.sidebar {
+    border: solid 1px;
+    background-color: rgb(201, 111, 111);
+}
+
+.article {
+    border: solid 1px;
+    background-color: rgb(131, 163, 152);
+}
+
+
+@media only screen and (max-width: 768px)   {  
+    .container2 {
+        grid-template-columns: 1fr;
+    .sidebar {
+        order:1 ;
+    }
+    }
+}
+
+@media only screen and 
