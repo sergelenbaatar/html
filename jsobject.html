@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//ex1
+			let car = {
+				brand: "Lexus",
+				model: "RX450",
+				year: 2025,
+			};
+			console.log("brand:", car.brand);
+			console.log("model:", car.model);
+			console.log("year:", car.year);
+			//ex2
+			let person = {
+				firstName: "Chris",
+				lastName: "Brown",
+				age: "40",
+			};
+
+			delete person.age;
+
+			person.city = "NewYork";
+			person.position = "Singer";
+			person["isMarried"] = true;
+
+			console.log("person:", person);
+
+			//ex3
+			const getFullName = function (firstName, lastName) {
+				return firstName + " " + lastName;
+			};
+
+			person.getFullName = getFullName;
+
+			console.log(person.getFullName(person.firstName, person.lastName));
+
+			//ex4
+			let movie = {
+				title: "Titanic",
+				director: "James Cameron",
+				year: 1990,
+				genre: "Romance",
+			};
+
+			let getKeysAndValues = function () {
+				return {
+					keys: Object.keys(movie),
+					values: Object.values(movie),
+				};
+			};
+
+			movie.getKeysAndValues = getKeysAndValues;
+
+			console.log("Ex4", movie.getKeysAndValues());
+
+			//ex5
+			let address = {
+				street: "Sukhbaatar",
+				city: "Ulaanbaatar",
+				zipCode: "16000",
+			};
+			let student = {
+				name: "John",
+				age: 20,
+			};
+			student.address = address;
+
+			const getFullAddress = function (street, city, zip) {
+				return street + " " + city + " " + zip;
+			};
+
+			student.getFullAddress = getFullAddress;
+
+			console.log(
+				"ex5",
+				student.getFullAddress(address.street, address.city, address.zipCode)
+			);
+
+			//ex6
+			let user = {
+				name: "John",
+				age: 45,
+				greet: function () {
+					return `Happy Birthday ${this.name}`;
+				},
+			};
+			const updateName = function (name) {
+				return name;
+			};
+			user.updateName = updateName;
+
+			console.log(user.greet());
+
+			//ex7
+			let book1 = {
+				title: "nom1",
+				author: "zohiogch1",
+				year: 2000,
+			};
+
+			let book2 = {
+				author: "zohiogch2",
+				description: "sain nom",
+				category: "uran zohiol",
+				year: 2010,
+			};
+
+			const mergeBooks = Object.assign(book1, book2);
+			console.log(mergeBooks);
+
+			//ex8
+			let config = {
+				host: "erxes.mn",
+				port: "8080",
+				protocol: "tcp",
+			};
+			Object.freeze(config);
+			config.port = 9000;
+			console.log(config);
+
+			Object.seal(config);
+			config.protocol = "ip";
+			console.log(config);
+
+			//ex9
+			//ex10
+			const students = {
+				1: { name: "Bolor", grade: 95 },
+				2: { name: "Anu", grade: 87 },
+				3: { name: "Temuujin", grade: 78 },
+				4: { name: "Delger", grade: 83 },
+				5: { name: "Zolzaya", grade: 92 },
+			};
+			//ex10-1
+			const calculateAverage = function () {
+				const total =
+					students[1].grade +
+					students[2].grade +
+					students[3].grade +
+					students[4].grade +
+					students[5].grade;
+				return total / 5;
+			};
+			console.log(calculateAverage());
+
+			//ex10-2
+			const findAboveAverageStudents = function () {};
+		</script>
+	</body>
+</html>
