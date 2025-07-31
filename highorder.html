@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body>
+		<script>
+			//Ex1
+			const users = [
+				{ id: 1, name: "Tsetsegee" },
+				{ id: 2, name: "Dulmaa" },
+				{ id: 3, name: "Bataa" },
+			];
+
+			const orders = [
+				{
+					userId: 1,
+					items: [
+						{ name: "MacBook", price: 2500000 },
+						{ name: "Mouse", price: 40000 },
+					],
+				},
+				{ userId: 2, items: [{ name: "Pen", price: 2000 }] },
+				{ userId: 3, items: [{ name: "Chair", price: 120000 }] },
+			];
+
+			const filteredOrders = orders.filter((order) =>
+				order.items.some((item) => item.price > 100000)
+			);
+			console.log(filteredOrders);
+
+			const expensiveUserNames = filteredOrders.map((order) => {
+				const user = users.find((u) => u.id === order.userId);
+				console.log("user", user);
+				return user.name;
+			});
+
+			//Ex2
+			const students = [
+				{ id: 1, name: "William", selectedSubjects: ["Math", "Physics"] },
+				{ id: 2, name: "Drake", selectedSubjects: ["Biology", "Chemistry"] },
+				{ id: 3, name: "Weekend", selectedSubjects: ["Math", "History"] },
+			];
+
+			const subjects = [
+				{ name: "Math" },
+				{ name: "Physics" },
+				{ name: "Chemistry" },
+				{ name: "Biology" },
+				{ name: "History" },
+			];
+
+			const filteredSubject = subjects.find(
+				(subject) => subject.name === "Math"
+			);
+			console.log(filteredSubject);
+
+			const filteredSubject1 = students.filter((student) =>
+				student.selectedSubjects.some((name) => name === filteredSubject.name)
+			);
+			console.log(filteredSubject1);
+
+			const onlyNames = filteredSubject1.map((names) => names.name);
+			console.log(onlyNames);
+
+			         //Ex3
+			         const user = { id: 1, name: "Anu" };
+
+			         const orders1 = [
+			         { userId: 1, items: ["Book", "Pen"] },
+			         { userId: 2, items: ["Chair"] },
+			         { userId: 1, items: ["Notebook", "Bag"] },
+			         ];
+
+			         const usersOrders = orders1.filter(order => order.userId === user.id);
+			         const userItems = usersOrders.map(order => order.items.flat().join(", "));
+
+			         console.log("ex3:", ${user.name} "has ordered:", userItems.toString());
+		</script>
+	</body>
+</html>
