@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Problem solving</title>
+	</head>
+	<body></body>
+	<script>
+		//ex3
+		const people = [
+			{ id: 1, name: "DORJ", age: 18 },
+			{ id: 2, name: "BOLD", age: 13 },
+			{ id: 3, name: "BAT", age: 15 },
+			{ id: 4, name: "TURUU", age: 20 },
+			{ id: 15, name: "SUMBEE", age: 23 },
+		];
+
+		const adult = people.filter((person) => {
+			return person.age >= 18;
+		});
+
+		console.log(adult);
+
+		//ex4
+		const users = [
+			{ id: 11, name: "bat", age: 23, group: "editor" },
+			{ id: 47, name: "sukhee", age: 28, group: "admin" },
+			{ id: 75, name: "bymbaa", age: 34, group: "editor" },
+			{ id: 33, name: "bandia", age: 19, group: "admin" },
+			{ id: 45, name: "tumee", age: 27, group: "editor" },
+		];
+
+		const capitalFirstLetter = users.map((user) => {
+			return user.name[0].toUpperCase() + user.name.slice(1);
+		});
+
+		console.log(capitalFirstLetter);
+
+		//ex5
+		const vsers = [
+			{ id: 11, name: "Bat", age: 23, group: "editor" },
+			{ id: 47, name: "Bold", age: 28, group: "admin" },
+			{ id: 85, name: "Tulga", age: 34, group: "editor" },
+			{ id: 97, name: "Suren", age: 28, group: "admin" },
+		];
+
+		const admins = vsers.filter((vser) => {
+			return vser.group === "admin";
+		});
+		console.log(admins);
+
+		//ex6
+		const numbers = ["5", "7", "22"];
+
+		function myMap(array, myFunction) {
+			const result = [];
+
+			for (let i = 0; i < array.length; i++) {
+				result.push(myFunction(array[i]));
+			}
+
+			return result;
+		}
+
+		const newNumbers = myMap(numbers, (x) => Number(x) * 2);
+
+		console.log(newNumbers);
+	</script>
+</html>
