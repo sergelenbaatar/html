@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Weather</title>
+		<style>
+			body {
+				display: grid;
+				background-color: aquamarine;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+			}
+			#get-weather {
+				background-color: rgb(116, 138, 71);
+				color: white;
+				border: none;
+				padding: 8px 12px;
+				cursor: pointer;
+			}
+			.weather-box {
+				margin-top: 15px;
+				padding: 10px;
+				background: white;
+				border-radius: 8px;
+				box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+				min-width: 200px;
+				text-align: center;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<h1>Weather App</h1>
+			<input type="text" id="city-input" placeholder="Enter city name" />
+			<button id="get-weather" onclick="getWeather()">Get Weather</button>
+			<div id="weather-info" class="weather-box"></div>
+		</div>
+
+		<script>
+			function getWeather() {
+				const city = document.getElementById("city-input").value.trim();
+				const weatherDiv = document.getElementById("weather-info");
+
+				if (!city) {
+					weatherDiv.innerHTML = "Please enter a city name.";
+					return;
+				}
+
+				fetch(
+					`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=ffc74c9e41d3cd99bf6bb25a7f582a7a`
+				)
+					.then((res) => {
+						if (!res.ok) throw new Error("City not found");
+						return res.json();
+					})
+					.then((data) => {
+						const iconCode = data.weather[0].icon;
+						const iconUrl = `https://openweathermap.org/img/wn/${iconCode}@2x.png`;
+
+						weatherDiv.innerHTML = `
+						<h3>${data.name}, ${data.sys.country}</h3>
+						<img src="${iconUrl}" alt="${data.weather[0].description}" />
+						<p>Time zone: UTC${data.timezone / 3600}</p>
+						<p>Temperature: ${data.main.temp}°C</p>
+						<p>Humidity: ${data.main.humidity}%</p>
+						<p>Weather: ${data.weather[0].description}</p>
+						<p>Visibility: ${(data.visibility / 1000).toFixed(1)} km</p>
+						<p>Wind speed: ${data.wind.speed} m/s</p>
+					`;
+					})
+					.catch((err) => {
+						weatherDiv.innerHTML = `<p style="color:red;">${err.message}</p>`;
+					});
+			}
+		</script>
+	</body>
+</html>
