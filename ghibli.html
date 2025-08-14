@@ -9,59 +9,111 @@
 	<body class="theme">
 		<header>
 			<div class="menu-left">
-          <nav>
-            <a href="/netflix.com"></a><img src="logo.png" alt="logo" /></a>
-            <a href="netflix.html">home</a>
-            <a href="netflix.html">series</a>
-            <a href="netflix.html">movie</a>
-            <a href="netflix.html">game</a>
-            <a href="netflix.html">Latest content</a>
-            <a href="netflix.html">My Wishlist</a>
-            <a href="netflix.html">Browse by language</a>
+				<nav>
+					<img src="logo.png" alt="logo" />
+					<a href="netflix.html">Home</a>
+					<a href="netflix.html">Series</a>
+					<a href="netflix.html">Movie</a>
+					<a href="netflix.html">Game</a>
+					<a href="netflix.html">Latest content</a>
+					<a href="netflix.html">My Wishlist</a>
+					<a href="netflix.html">Browse by language</a>
 				</nav>
 			</div>
 
 			<div class="menu-right">
-				<img src="search.png" alt="search" />
-				<a href="">Kids</a>
+				<input
+					class="search"
+					type="text"
+					name="search"
+					placeholder="Search.."
+				/>
+				<a href="netflix.html">Kids</a>
 				<img src="bell.png" alt="notification" />
-                <img src="profile.webp">
+				<img src="profile.webp" />
 			</div>
 		</header>
-    <div>
-      <p id="title">Studio Ghibli Films</p>
-    </div>
-        <div class="container">
-        </div>
-	</body>
-</html>
+		<section class="hero">
+			<iframe
+				width="100%"
+				height="700px"
+				src="https://www.youtube.com/embed/RzSpDgiF5y8?autoplay=1&mute=1&loop=1&playlist=RzSpDgiF5y8"
+				title="YouTube video player"
+				frameborder="0"
+				allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+				allowfullscreen
+			></iframe>
 
-  <script>
-    const container = document.querySelector(".container");
+			<div class="hero-overlay">
+				<h1>Studio Ghibli</h1>
+				<p>Explore the magical world of anime films</p>
+				<button>Watch Now</button>
+			</div>
+		</section>
 
-    function getMovies() {
-      fetch(`https://ghibliapi.vercel.app/films`)
-        .then((res) => {
-          if (!res.ok) throw new Error("Movies not found, api wrong");
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);
-          const movies = data;
-          movies.map((movie) => {
-            const list = document.createElement("div");
-            list.classList.add("movieContainer");
+		<div>
+			<p id="title">Studio Ghibli Films</p>
+		</div>
 
-            list.innerHTML = `
-            <img src="${movie.image}" alt="${movie.title}"/>
-            <h2>${movie.title}</h2>
+		<div class="container"></div>
+
+		<script>
+			const container = document.querySelector(".container");
+
+			function getMovies() {
+				fetch(`https://ghibliapi.vercel.app/films`)
+					.then((res) => {
+						if (!res.ok) throw new Error("Movies not found, API wrong");
+						return res.json();
+					})
+					.then((movies) => {
+						movies.forEach((movie) => {
+							const list = document.createElement("div");
+							list.classList.add("movieContainer");
+
+							list.innerHTML = `
+              <img src="${movie.image}" alt="${movie.title}"/>
+              <div class="overlay">
+                <h3>${movie.title}</h3>
+                <p class="desc">${movie.description.substring(0, 120)}...</p>
+                <div class="details">
+                  <span> ${movie.release_date}</span>
+                  <span> ${movie.director}</span>
+                  <span> ${movie.running_time} min</span>
+                </div>
+              </div>
             `;
 
-            container.appendChild(list);
-          });
-        });
-    }
+							container.appendChild(list);
+						});
+					})
+					.catch((err) => console.error(err));
+			}
 
-    getMovies();
-  </script>
+			getMovies();
+
+			const searchInput = document.querySelector(".search");
+
+			searchInput.addEventListener("input", (e) => {
+				const searchValue = e.target.value.toLowerCase();
+				const movies = document.querySelectorAll(".movieContainer");
+
+				movies.forEach((movie) => {
+					const title = movie.querySelector("h3").textContent.toLowerCase();
+					const description = movie
+						.querySelector("p")
+						.textContent.toLowerCase();
+
+					if (
+						title.includes(searchValue) ||
+						description.includes(searchValue)
+					) {
+						movie.style.display = "block";
+					} else {
+						movie.style.display = "none";
+					}
+				});
+			});
+		</script>
+	</body>
 </html>
